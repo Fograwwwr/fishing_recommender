@@ -9,6 +9,8 @@ from pathlib import Path
 create_product_embeddings(Path('data'), model_name='BAAI/bge-m3')
 "
 
+ДЛЯ ЗАПУСКА МЕТРИК ВЫПОЛНИТЕ В ТЕРМИНАЛЕ:
+python -m src.utils
 
 ТЕСТИРОВАНИЕ МОДЕЛИ:
 В боковом меню перейдите во вкладку "Поиск товаров"
@@ -29,5 +31,6 @@ create_product_embeddings(Path('data'), model_name='BAAI/bge-m3')
 "На судака тест от 7 до 28 г от 7000 руб" 
 
 "Палка на окуня от 3 г"
+
 
 
