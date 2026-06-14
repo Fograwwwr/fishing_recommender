@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#eef6ee"/>
+  <circle cx="200" cy="130" r="55" stroke="#2e7d4f" stroke-width="5" fill="none"/>
+  <circle cx="200" cy="130" r="8" fill="#2e7d4f"/>
+  <path d="M200 185 L200 230" stroke="#2e7d4f" stroke-width="4"/>
+  <path d="M170 230 L230 230" stroke="#2e7d4f" stroke-width="4" stroke-linecap="round"/>
+  <text x="200" y="270" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#2e7d4f">Снасти</text>
+</svg>

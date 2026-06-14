@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#e8f4fc"/>
+  <path d="M60 250 Q200 80 340 50" stroke="#1a6b9a" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <circle cx="340" cy="50" r="8" fill="#2d9cdb"/>
+  <path d="M80 240 L100 200 L120 240 Z" fill="#145374"/>
+  <text x="200" y="270" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#145374">Удилища</text>
+</svg>

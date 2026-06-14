@@ -7,6 +7,8 @@
 import pandas as pd
 from pathlib import Path
 
+from src.dataset_builder import TARGET_SIZE, build_dataset, export_dataset, validate_dataset
+
 def dataset():
     data_dir = Path("data")
     data_dir.mkdir(exist_ok=True)
@@ -414,28 +416,19 @@ def dataset():
     {"name": "Стол складной алюминиевый", "description": "Лёгкий стол для приготовления прикормки.", "price": 2390, "category": "Палатки"}
 
 ]
-    df = pd.DataFrame(quality_products)
+    print(f"Базовых товаров в dataset.py: {len(quality_products)}")
 
-    # Удалем дубликаты по названию
-    df = df.drop_duplicates(subset=['name'], keep='first')
+    df = build_dataset(quality_products, target_size=TARGET_SIZE)
+    validate_dataset(df, target_size=TARGET_SIZE)
 
-    # +уникальный id с 1
-    df = df.reset_index(drop=True)
-    df.insert(0, 'id', range(1, len(df) + 1))
+    paths = export_dataset(df, data_dir)
 
-    # Сохраняем 
-    df.to_csv(data_dir / "products.csv", index=False, encoding='utf-8')
-
-    # Создание файла для эмбеддингов
-    df['text_for_embedding'] = df.apply(
-        lambda row: f"{row['name']}. {row['category']}. {row['description']} "
-                    f"test_min_{row.get('test_min', 'nan')} "
-                    f"test_max_{row.get('test_max', 'nan')}", axis=1 )
-    df.to_csv(data_dir / "products_with_text.csv", index=False, encoding='utf-8')
-
-    print(f"Создано {len(df)} товаров")
-    print(f"products.csv с id")
-    print(f"products_with_text.csv готов")
+    print(f"Создано {paths['total']} уникальных товаров")
+    print(f"CSV: {paths['csv']}")
+    print(f"JSON: {paths['json']}")
+    print(f"CSV с текстом для эмбеддингов: {paths['with_text_csv']}")
+    print(f"Дубликаты по названию: {paths['duplicate_names']}")
+    print(df['category'].value_counts().head(10))
     print(df[['id', 'name', 'category', 'price']].head(10))
 
 if __name__ == "__main__":

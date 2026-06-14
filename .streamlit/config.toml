@@ -1,0 +1,4 @@
+[server]
+# PyTorch registers custom C++ classes that break Streamlit's file watcher
+# when it introspects torch._classes.__path__ on startup.
+fileWatcherType = "none"
